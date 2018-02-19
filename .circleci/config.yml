@@ -23,7 +23,7 @@ jobs:
       - run:
           working_directory: ~/source/CoreSolution.FunctionProject/bin/Debug/netstandard2.0
           name: Compress Output
-          command: zip funcapp *
+          command: zip -r funcapp *
       - store_artifacts:
           path: ~/source/CoreSolution.FunctionProject/bin/Debug/netstandard2.0/funcapp.zip
           destination: funcapp.zip
