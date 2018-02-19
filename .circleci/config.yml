@@ -20,5 +20,10 @@ jobs:
           working_directory: ~/source/
           name: Publish Project
           command: dotnet publish --configuration Release
+      - run:
+          working_directory: ~/source/CoreSolution.FunctionProject/bin/Release/netstandard2.0
+          name: Compress Output
+          command: zip funcapp *
       - store_artifacts:
-          path: ~/source/CoreSolution.FunctionProject/bin/Release/netstandard2.0
+          path: ~/source/CoreSolution.FunctionProject/bin/Release/netstandard2.0/funcapp.zip
+          destination: funcapp.zip
