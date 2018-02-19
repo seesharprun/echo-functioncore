@@ -2,7 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: seesharprun/dotnet-and-azure-cli:1.0.0
+      - image: seesharprun/dotnet-and-azure-cli:1.1.0
+    working_directory: ~/source/
     steps:
       - checkout
       - run:
@@ -12,10 +13,12 @@ jobs:
           name: Test DotNet CLI
           command: dotnet --version
       - run:
+          working_directory: ~/source/
           name: Build Project
           command: dotnet build
       - run:
+          working_directory: ~/source/
           name: Publish Project
           command: dotnet publish --configuration Release
       - store_artifacts:
-          path: ~/CoreSolution.FunctionProject/bin/Release/netstandard2.0
+          path: ~/source/CoreSolution.FunctionProject/bin/Release/netstandard2.0
