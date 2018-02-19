@@ -3,12 +3,12 @@
     {
       "type": "httpTrigger",
       "methods": [
-        "POST"
+        "GET"
       ],
       "authLevel": "anonymous",
       "name": "request"
     }
   ],
   "scriptFile": "../CoreSolution.FunctionProject.dll",
-  "entryPoint": "CoreSolution.FunctionProject.Echo.Run"
+  "entryPoint": "CoreSolution.FunctionProject.Greet.Run"
 }
