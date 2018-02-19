@@ -18,4 +18,4 @@ jobs:
           name: Publish Project
           command: dotnet publish --configuration Release
       - store_artifacts:
-          path: ~/bin/Release/netstandard2.0
+          path: ~/CoreSolution.FunctionProject/bin/Release/netstandard2.0
