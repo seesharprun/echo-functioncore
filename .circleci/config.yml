@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: seesharprun/dotnet-and-azure-cli:1.0.0
+    steps:
+      - checkout
+      - run:
+          name: Test Azure CLI
+          command: az -v
+      - run:
+          name: Test DotNet CLI
+          command: dotnet --version
+      - run:
+          name: Build Project
+          command: dotnet build
+      - run:
+          name: Publish Project
+          command: dotnet publish --configuration Release
+      - store_artifacts:
+          path: ~/bin/Release/netstandard2.0
