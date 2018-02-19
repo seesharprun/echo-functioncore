@@ -27,3 +27,9 @@ jobs:
       - store_artifacts:
           path: ~/source/CoreSolution.FunctionProject/bin/Release/netstandard2.0/funcapp.zip
           destination: funcapp.zip
+      - run:
+          name: Login to Azure CLI
+          command: az login --service-principal --username ${APP_ID} --password ${PASSWORD} --tenant ${TENANT_ID}
+      - run:
+          name: Enumerate Accounts
+          command: az account list
