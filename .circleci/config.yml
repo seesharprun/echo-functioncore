@@ -38,9 +38,6 @@ jobs:
           name: Deploy Function App Template
           command: az group deployment create --resource-group AutomatedFunctionGroup --template-file deploy.json
       - run:
-          name: Get Function App Name
-          command: funcName=$(az group deployment list --resource-group AutomatedFunctionGroup --out tsv --query "[].[properties.outputs.name.value]")
-      - run:
           working_directory: ~/source/CoreSolution.FunctionProject/bin/Release/netstandard2.0
           name: Push Project to Azure Function
-          command: az functionapp deployment source config-zip --resource-group myResourceGroup --name $funcName --src funcapp.zip
+          command: az functionapp deployment source config-zip --resource-group AutomatedFunctionGroup --src funcapp.zip --name $(az group deployment list --resource-group AutomatedFunctionGroup --out tsv --query "[].[properties.outputs.name.value]")
