@@ -19,7 +19,7 @@ jobs:
       - run:
           working_directory: ~/source/
           name: Publish Project
-          command: dotnet publish --configuration Release
+          command: dotnet publish
       - run:
           working_directory: ~/source/CoreSolution.FunctionProject/bin/Release/netstandard2.0
           name: Compress Output
